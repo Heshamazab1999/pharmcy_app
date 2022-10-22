@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448068480713",
+    "project_id": "pharmcy-2993d",
+    "storage_bucket": "pharmcy-2993d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448068480713:android:2078669fdaac523ba22718",
+        "android_client_info": {
+          "package_name": "com.example.pharmcy_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448068480713-0l4l7amart8cri6mvq3dsl1apj73cg35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWmlMxwldO2COOhn_5ohfU14Bd9N1HJZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448068480713-0l4l7amart8cri6mvq3dsl1apj73cg35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
