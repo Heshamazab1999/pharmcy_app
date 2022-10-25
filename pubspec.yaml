@@ -46,7 +46,12 @@ dependencies:
   auto_size_text:
   firebase_core:
   flutter_svg:
+  firebase_database:
+  qr_flutter: ^4.0.0
   cloud_firestore: ^4.0.2
+  barcode:
+  shimmer:
+
 
 
 dev_dependencies:

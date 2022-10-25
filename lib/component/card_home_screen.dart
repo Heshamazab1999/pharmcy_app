@@ -1,46 +1,95 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmcy_app/component/cashe_image.dart';
+import 'package:pharmcy_app/helper/color_resources.dart';
 import 'package:pharmcy_app/helper/dimensions.dart';
-import 'package:pharmcy_app/models/medicine_model.dart';
+import 'package:pharmcy_app/helper/styles.dart';
+import 'package:pharmcy_app/models/model.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class CardScreen extends StatelessWidget {
-  const CardScreen({Key? key, this.medicine}) : super(key: key);
-  final MedicineModel? medicine;
+  const CardScreen({
+    Key? key,
+    this.medicine,
+  }) : super(key: key);
+  final MedicinesModel? medicine;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4),
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(Dimensions.RADIUS_SIZE_TEN),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.1),
             spreadRadius: 2,
-            blurRadius: 2,
+            blurRadius: 0,
             offset: const Offset(0, 2), // changes position of shadow
           ),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Center(
-            child: SizedBox(
-              width: Dimensions.width * 0.3,
-              height: Dimensions.height * 0.1,
-              child: LoadImage(image: medicine!.image!),
+          Expanded(
+            flex: 1,
+            child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(Dimensions.RADIUS_SIZE_TEN),
+                    topRight: Radius.circular(Dimensions.RADIUS_SIZE_TEN)),
+                child: LoadImage(image: medicine!.pHOTO)
+                // "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"),
+                ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4),
+            child: AutoSizeText(
+              medicine!.pRODNAMEEN!,
+              style: avenirsMedium.copyWith(
+                  fontSize: Dimensions.FONT_SIZE_LARGE,
+                  color: ColorResources.Black_COLOR),
             ),
           ),
-          AutoSizeText(medicine!.name!),
-          AutoSizeText("Type:${medicine!.type!}"),
-          AutoSizeText("price:${medicine!.price!}Le"),
-          AutoSizeText(medicine!.strength!),
-          AutoSizeText(medicine!.similars!),
-          AutoSizeText(medicine!.alternative!),
-          AutoSizeText(medicine!.material!),
+          AutoSizeText(
+            "Type:${medicine!.pRICETAPE!}",
+            style: avenirsMedium.copyWith(
+                fontSize: Dimensions.RADIUS_SIZE_TEN,
+                color: ColorResources.Black_COLOR),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: RichText(
+                  text: TextSpan(
+                      text: "Price : ",
+                      style: avenirsMedium.copyWith(
+                          fontSize: Dimensions.FONT_SIZE_LARGE,
+                          color: ColorResources.Black_COLOR),
+                      children: [
+                        TextSpan(
+                          text: medicine!.pRICETAPE,
+                          style: avenirsMedium.copyWith(
+                              fontSize: Dimensions.FONT_SIZE_LARGE,
+                              color: ColorResources.RED_COLOR),
+                        ),
+                        TextSpan(
+                          text: " LE",
+                          style: avenirsMedium.copyWith(
+                              fontSize: Dimensions.FONT_SIZE_LARGE,
+                              color: ColorResources.Black_COLOR),
+                        ),
+                      ]),
+                ),
+              ),
+              QrImage(
+                data: medicine!.bARCODEU,
+                version: QrVersions.auto,
+                size: 50.0,
+              ),
+            ],
+          )
         ],
       ),
     );
