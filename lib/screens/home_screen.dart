@@ -91,11 +91,11 @@ class HomeScreen extends StatelessWidget {
                         enablePullDown: true,
                         onLoading: () async {
                           await controller.loadMore();
-                          controller.refreshController.loadComplete();
-                          controller.refreshController.loadFailed();
+                          // controller.refreshController.loadComplete();
+                          // controller.refreshController.requestLoading();
                         },
                         child: GridView.builder(
-                         // controller: controller.scrollController,
+                          // controller: controller.scrollController,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 15),
                           physics: const BouncingScrollPhysics(),
@@ -130,7 +130,6 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-
                 ],
               ),
             ),
