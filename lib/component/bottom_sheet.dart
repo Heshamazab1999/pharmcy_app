@@ -4,11 +4,10 @@ import 'package:pharmcy_app/helper/color_resources.dart';
 import 'package:pharmcy_app/helper/dimensions.dart';
 import 'package:pharmcy_app/helper/styles.dart';
 import 'package:pharmcy_app/models/model.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 class FixedBottomSheet extends StatelessWidget {
   const FixedBottomSheet({Key? key, this.medicine}) : super(key: key);
-  final MedicinesModel? medicine;
+  final MedicineModel? medicine;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class FixedBottomSheet extends StatelessWidget {
                   topRight: Radius.circular(50), topLeft: Radius.circular(50)),
             ),
             child: LoadImage(
-              image: medicine!.pHOTO,
+              image: medicine!.i!,
             ),
           ),
         ),
@@ -40,7 +39,27 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.pRODNAMEEN,
+                    text: medicine!.b,
+                    style: avenirsMedium.copyWith(
+                        fontSize: Dimensions.FONT_SIZE_LARGE,
+                        color: ColorResources.Black_COLOR),
+                  ),
+                ]),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+          ),
+          child: RichText(
+            text: TextSpan(
+                text: "PROD_NAME_AR : ",
+                style: avenirsMedium.copyWith(
+                    fontSize: Dimensions.FONT_SIZE_DEFAULT,
+                    color: ColorResources.RED_COLOR),
+                children: [
+                  TextSpan(
+                    text: medicine!.c,
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -60,7 +79,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.aCTIVEINGREDIENT,
+                    text: medicine!.d,
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -80,7 +99,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.eXPIREWARNING.toString(),
+                    text: medicine!.h.toString(),
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -105,7 +124,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.eXPIREWARNINGDAY.toString(),
+                    text: medicine!.g.toString(),
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -130,7 +149,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.cONSUMERPRICE.toString(),
+                    text: medicine!.f.toString(),
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -156,7 +175,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.pRICETAPE,
+                    text: medicine!.k,
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -170,13 +189,6 @@ class FixedBottomSheet extends StatelessWidget {
                 ]),
           ),
         ),
-        Center(
-          child: QrImage(
-            data: medicine!.bARCODEU,
-            version: QrVersions.auto,
-            size: 100.0,
-          ),
-        )
       ],
     );
   }

@@ -5,14 +5,13 @@ import 'package:pharmcy_app/helper/color_resources.dart';
 import 'package:pharmcy_app/helper/dimensions.dart';
 import 'package:pharmcy_app/helper/styles.dart';
 import 'package:pharmcy_app/models/model.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 class CardScreen extends StatelessWidget {
   const CardScreen({
     Key? key,
     this.medicine,
   }) : super(key: key);
-  final MedicinesModel? medicine;
+  final MedicineModel? medicine;
 
   @override
   Widget build(BuildContext context) {
@@ -38,21 +37,31 @@ class CardScreen extends StatelessWidget {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(Dimensions.RADIUS_SIZE_TEN),
                     topRight: Radius.circular(Dimensions.RADIUS_SIZE_TEN)),
-                child: LoadImage(image: medicine!.pHOTO)
+                child: LoadImage(image: medicine!.i)
                 // "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"),
                 ),
           ),
           Padding(
             padding: const EdgeInsets.all(4),
             child: AutoSizeText(
-              medicine!.pRODNAMEEN!,
+              medicine!.b!,
+              maxLines: 1,
+              style: avenirsMedium.copyWith(
+                  fontSize: Dimensions.FONT_SIZE_LARGE,
+                  color: ColorResources.Black_COLOR),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4),
+            child: AutoSizeText(
+              "Name-Ar: ${medicine!.c!}",
               style: avenirsMedium.copyWith(
                   fontSize: Dimensions.FONT_SIZE_LARGE,
                   color: ColorResources.Black_COLOR),
             ),
           ),
           AutoSizeText(
-            "Type:${medicine!.pRICETAPE!}",
+            "Type:${medicine!.j!}",
             style: avenirsMedium.copyWith(
                 fontSize: Dimensions.RADIUS_SIZE_TEN,
                 color: ColorResources.Black_COLOR),
@@ -69,7 +78,7 @@ class CardScreen extends StatelessWidget {
                           color: ColorResources.Black_COLOR),
                       children: [
                         TextSpan(
-                          text: medicine!.pRICETAPE,
+                          text: medicine!.k!,
                           style: avenirsMedium.copyWith(
                               fontSize: Dimensions.FONT_SIZE_LARGE,
                               color: ColorResources.RED_COLOR),
@@ -83,13 +92,18 @@ class CardScreen extends StatelessWidget {
                       ]),
                 ),
               ),
-              QrImage(
-                data: medicine!.bARCODEU,
-                version: QrVersions.auto,
-                size: 50.0,
-              ),
             ],
-          )
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(4),
+          //   child: AutoSizeText(
+          //     "INDICATIONS ${medicine!.l!}",
+          //     maxLines: 1,
+          //     style: avenirsMedium.copyWith(
+          //         fontSize: Dimensions.FONT_SIZE_LARGE,
+          //         color: ColorResources.Black_COLOR),
+          //   ),
+          // ),
         ],
       ),
     );

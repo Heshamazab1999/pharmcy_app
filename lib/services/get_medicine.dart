@@ -16,14 +16,14 @@ class GetMedicineServices {
     return _messagesRef;
   }
 
-  List<MedicinesModel> stations = [];
+  List<MedicineModel> stations = [];
 
-  Future<List<MedicinesModel>> getMedicines(int num) async {
+  Future<List<MedicineModel>> getMedicines(int num) async {
     DatabaseReference ref = FirebaseDatabase.instance.ref("results");
     DatabaseEvent event = await ref.limitToFirst(num).once();
     List jsonResponse = event.snapshot.value as List;
     // print(jsonResponse);
-    return jsonResponse.map((job) => MedicinesModel.fromJson(job)).toList();
+    return jsonResponse.map((job) => MedicineModel.fromJson(job)).toList();
 
     // await FirebaseDatabase.instance
     //     .ref()

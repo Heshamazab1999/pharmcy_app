@@ -1,60 +1,60 @@
-class MedicinesModel {
-  dynamic? pRODID;
-  dynamic? aCTIVEINGREDIENT;
-  dynamic? pRODNAME;
-  dynamic? pRODNAMEEN;
-  dynamic? bARCODEU;
-  dynamic? cONSUMERPRICE;
-  dynamic? eXPIREWARNINGDAY;
-  dynamic? eXPIREWARNING;
-  dynamic? pHOTO;
-  dynamic? pRICETAPE;
-  dynamic? pRICETABLET;
-  dynamic? iNDICATIONS;
+class MedicineModel {
+  dynamic a;
+  dynamic b;
+  dynamic c;
+  dynamic d;
+  dynamic e;
+  dynamic f;
+  dynamic g;
+  dynamic h;
+  dynamic i;
+  dynamic j;
+  dynamic k;
+  dynamic l;
 
-  MedicinesModel(
-      {this.pRODID,
-        this.aCTIVEINGREDIENT,
-        this.pRODNAME,
-        this.pRODNAMEEN,
-        this.bARCODEU,
-        this.cONSUMERPRICE,
-        this.eXPIREWARNINGDAY,
-        this.eXPIREWARNING,
-        this.pHOTO,
-        this.pRICETAPE,
-        this.pRICETABLET,
-        this.iNDICATIONS});
+  MedicineModel(
+      {this.a,
+      this.b,
+      this.c,
+      this.d,
+      this.e,
+      this.f,
+      this.g,
+      this.h,
+      this.i,
+      this.j,
+      this.k,
+      this.l});
 
-  MedicinesModel.fromJson(Map<dynamic, dynamic> json) {
-    pRODID = json['PROD_ID'];
-    aCTIVEINGREDIENT = json['ACTIVE_INGREDIENT'];
-    pRODNAME = json['PROD_NAME'];
-    pRODNAMEEN = json['PROD_NAME_EN'];
-    bARCODEU = json['BARCODE_U'];
-    cONSUMERPRICE = json['CONSUMER_PRICE'];
-    eXPIREWARNINGDAY = json['EXPIRE_WARNING_DAY'];
-    eXPIREWARNING = json['EXPIRE_WARNING'];
-    pHOTO = json['PHOTO'];
-    pRICETAPE = json['PRICE_TAPE'];
-    pRICETABLET = json['PRICE_TABLET'];
-    iNDICATIONS = json['INDICATIONS'];
+  MedicineModel.fromJson(Map<dynamic, dynamic> json) {
+    a = json['A'];
+    b = json['B'];
+    c = json['C'];
+    d = json['D'];
+    e = json['E'];
+    f = json['F'];
+    g = json['G'];
+    h = json['H'];
+    i = json['I'];
+    j = json['J'];
+    k = json['K'];
+    l = json['L'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['PROD_ID'] = this.pRODID;
-    data['ACTIVE_INGREDIENT'] = this.aCTIVEINGREDIENT;
-    data['PROD_NAME'] = this.pRODNAME;
-    data['PROD_NAME_EN'] = this.pRODNAMEEN;
-    data['BARCODE_U'] = this.bARCODEU;
-    data['CONSUMER_PRICE'] = this.cONSUMERPRICE;
-    data['EXPIRE_WARNING_DAY'] = this.eXPIREWARNINGDAY;
-    data['EXPIRE_WARNING'] = this.eXPIREWARNING;
-    data['PHOTO'] = this.pHOTO;
-    data['PRICE_TAPE'] = this.pRICETAPE;
-    data['PRICE_TABLET'] = this.pRICETABLET;
-    data['INDICATIONS'] = this.iNDICATIONS;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['A'] = a;
+    data['B'] = b;
+    data['C'] = c;
+    data['D'] = d;
+    data['E'] = e;
+    data['F'] = f;
+    data['G'] = g;
+    data['H'] = h;
+    data['I'] = i;
+    data['J'] = j;
+    data['K'] = k;
+    data['L'] = l;
     return data;
   }
 }

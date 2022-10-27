@@ -51,7 +51,7 @@ dependencies:
   cloud_firestore: ^4.0.2
   barcode:
   shimmer:
-
+  pull_to_refresh: ^2.0.0
 
 
 dev_dependencies:

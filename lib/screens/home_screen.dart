@@ -10,6 +10,7 @@ import 'package:pharmcy_app/helper/color_resources.dart';
 import 'package:pharmcy_app/helper/dimensions.dart';
 import 'package:pharmcy_app/helper/images.dart';
 import 'package:pharmcy_app/helper/utility.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../component/bottom_sheet.dart';
 
@@ -81,44 +82,55 @@ class HomeScreen extends StatelessWidget {
                       message: "Not Found Category",
                     )
                   else
-                    GridView.builder(
-                        controller: controller.scrollController,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 15, vertical: 15),
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: controller.isSearched
-                            ? controller.categorySearch.length
-                            : controller.loadData.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 3 / 4,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20),
-                        itemBuilder: (_, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Utility.showBottomSheet(
-                                  context,
-                                  FixedBottomSheet(
-                                    medicine: controller.isSearched
-                                        ? controller.categorySearch[index]
-                                        : controller.loadData[index],
-                                  ));
-                            },
-                            child: CardScreen(
-                              medicine: controller.isSearched
-                                  ? controller.categorySearch[index]
-                                  : controller.loadData[index],
-                            ),
-                          );
-                        }),
-                  Obx(() => controller.isLoadMoreRunning.value == true
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : const SizedBox()),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      child: SmartRefresher(
+                        controller: controller.refreshController,
+                        enablePullUp: true,
+                        enablePullDown: true,
+                        onLoading: () async {
+                          await controller.loadMore();
+                          controller.refreshController.loadComplete();
+                          controller.refreshController.loadFailed();
+                        },
+                        child: GridView.builder(
+                         // controller: controller.scrollController,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 15),
+                          physics: const BouncingScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: controller.isSearched
+                              ? controller.categorySearch.length
+                              : controller.medicine.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 3 / 4,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20),
+                          itemBuilder: (_, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Utility.showBottomSheet(
+                                    context,
+                                    FixedBottomSheet(
+                                      medicine: controller.isSearched
+                                          ? controller.categorySearch[index]
+                                          : controller.medicine[index],
+                                    ));
+                              },
+                              child: CardScreen(
+                                medicine: controller.isSearched
+                                    ? controller.categorySearch[index]
+                                    : controller.medicine[index],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+
                 ],
               ),
             ),
