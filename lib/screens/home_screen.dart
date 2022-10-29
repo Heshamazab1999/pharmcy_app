@@ -40,10 +40,10 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const Icon(
-                        Icons.shopping_cart_outlined,
-                        color: ColorResources.CARD_SHADOW_COLOR,
-                      ),
+                      // const Icon(
+                      //   Icons.shopping_cart_outlined,
+                      //   color: ColorResources.CARD_SHADOW_COLOR,
+                      // ),
                       SizedBox(width: Dimensions.width * 0.05),
                       Container(
                           clipBehavior: Clip.antiAlias,
@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: Dimensions.height * 0.03),
                   FixedTextField(
-                    label: "Search By name ....",
+                    label: "Search By any information",
                     type: TextInputType.name,
                     function: (v) {
                       controller.onFilter(v);

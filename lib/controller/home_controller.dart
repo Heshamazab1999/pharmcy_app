@@ -25,10 +25,8 @@ class HomeController extends BaseController {
     // TODO: implement onInit
     super.onInit();
     setSate(ViewState.busy);
-    Future.delayed(const Duration(milliseconds: 300), () async {
       medicine.assignAll(await _services.getMedicines(num));
       setSate(ViewState.idle);
-    });
   }
 
   onFilter(String string) {
@@ -48,7 +46,8 @@ class HomeController extends BaseController {
                   .trim()
                   .toLowerCase()
                   .contains(string.trim().toLowerCase()) ||
-              (e.l!).trim().toLowerCase().contains(string.trim().toLowerCase()))
+              (e.l!).trim().toLowerCase().contains(string.trim().toLowerCase())||
+                  (e.d!).trim().toLowerCase().contains(string.trim().toLowerCase()))
           .toList());
     }
   }

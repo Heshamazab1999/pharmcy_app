@@ -15,13 +15,14 @@ class LoadImage extends StatelessWidget {
       image: CachedNetworkImageProvider(
         image!,
       ),
+      width: size.width,
       placeholderBuilder: OctoPlaceholder.blurHash(
-        'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
-        fit: BoxFit.contain),
-    errorBuilder: (context, url, error) {
-    return const BlurHash(hash: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj');
-    },
-    fit: BoxFit.cover,
+          'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
+          fit: BoxFit.contain),
+      errorBuilder: (context, url, error) {
+        return const BlurHash(hash: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj');
+      },
+      fit: BoxFit.cover,
     );
   }
 }

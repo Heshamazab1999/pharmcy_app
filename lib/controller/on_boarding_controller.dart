@@ -9,16 +9,16 @@ class WelcomeScreenController extends BaseController {
   final isLast = false.obs;
   final isFirst = true.obs;
   final List<BoardingModel> labels = [
+    // BoardingModel(
+    //     label: "Get information\n about your Medicine ",
+    //     image: Images.onBoardImage2),
     BoardingModel(
-        label: "Get Reminders For Your\nMedications ",
-        image: Images.onBoardImage2),
-    BoardingModel(
-        label: "Share Your Reports\nWith Your Doctors",
-        image: Images.onBoardImage3),
+        label: "Search for your drugs\n by different ways ",
+        image: Images.covidImage),
   ];
 
   isLastFunction(int index) {
-    if (index == labels.length - 1) {
+    if (index == labels.length ) {
       isLast.value = true;
     } else {
       isLast.value = false;
@@ -26,7 +26,7 @@ class WelcomeScreenController extends BaseController {
   }
 
   isFirstFunction(int index) {
-    if (index == labels.length - 2) {
+    if (index == labels.length - 1) {
       isFirst.value = true;
     } else {
       isFirst.value = false;

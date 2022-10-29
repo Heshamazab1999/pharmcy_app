@@ -44,7 +44,7 @@ class CardScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4),
             child: AutoSizeText(
-              medicine!.b!,
+              medicine!.c!,
               maxLines: 1,
               style: avenirsMedium.copyWith(
                   fontSize: Dimensions.FONT_SIZE_LARGE,
@@ -60,25 +60,37 @@ class CardScreen extends StatelessWidget {
                   color: ColorResources.Black_COLOR),
             ),
           ),
-          AutoSizeText(
-            "Type:${medicine!.j!}",
-            style: avenirsMedium.copyWith(
-                fontSize: Dimensions.RADIUS_SIZE_TEN,
-                color: ColorResources.Black_COLOR),
+          Padding(
+            padding: const EdgeInsets.all(4),
+            child: AutoSizeText(
+              medicine!.b!,
+              maxLines: 1,
+              style: avenirsMedium.copyWith(
+                  fontSize: Dimensions.FONT_SIZE_LARGE,
+                  color: ColorResources.Black_COLOR),
+            ),
           ),
+          // AutoSizeText(
+          //   "Price_Tape:${medicine!.j!}",
+          //   style: avenirsMedium.copyWith(
+          //       fontSize: Dimensions.RADIUS_SIZE_TEN,
+          //       color: ColorResources.Black_COLOR),
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: RichText(
+                  maxLines: 1,
                   text: TextSpan(
                       text: "Price : ",
                       style: avenirsMedium.copyWith(
+                          overflow: TextOverflow.ellipsis,
                           fontSize: Dimensions.FONT_SIZE_LARGE,
                           color: ColorResources.Black_COLOR),
                       children: [
                         TextSpan(
-                          text: medicine!.k!,
+                          text: " ${double.parse(medicine!.k!)}",
                           style: avenirsMedium.copyWith(
                               fontSize: Dimensions.FONT_SIZE_LARGE,
                               color: ColorResources.RED_COLOR),
