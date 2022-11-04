@@ -39,7 +39,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.b,
+                    text: medicine!.d,
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -79,7 +79,7 @@ class FixedBottomSheet extends StatelessWidget {
                     color: ColorResources.RED_COLOR),
                 children: [
                   TextSpan(
-                    text: medicine!.d,
+                    text: medicine!.b,
                     style: avenirsMedium.copyWith(
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
@@ -186,6 +186,27 @@ class FixedBottomSheet extends StatelessWidget {
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
                   ),
+                ]),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+          ),
+          child: RichText(
+            text: TextSpan(
+                text: "INDICATIONS : ",
+                style: avenirsMedium.copyWith(
+                    fontSize: Dimensions.FONT_SIZE_DEFAULT,
+                    color: ColorResources.RED_COLOR),
+                children: [
+                  TextSpan(
+                    text: medicine!.l,
+                    style: avenirsMedium.copyWith(
+                        fontSize: Dimensions.FONT_SIZE_LARGE,
+                        color: ColorResources.Black_COLOR),
+                  ),
+
                 ]),
           ),
         ),
