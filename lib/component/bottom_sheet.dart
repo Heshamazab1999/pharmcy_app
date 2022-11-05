@@ -6,8 +6,10 @@ import 'package:pharmcy_app/helper/styles.dart';
 import 'package:pharmcy_app/models/model.dart';
 
 class FixedBottomSheet extends StatelessWidget {
-  const FixedBottomSheet({Key? key, this.medicine}) : super(key: key);
+  const FixedBottomSheet({Key? key, this.medicine, this.onTap})
+      : super(key: key);
   final MedicineModel? medicine;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +17,19 @@ class FixedBottomSheet extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          child: Container(
-            width: Dimensions.width,
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50), topLeft: Radius.circular(50)),
-            ),
-            child: LoadImage(
-              image: medicine!.i!,
+          child: GestureDetector(
+            onTap: onTap,
+            child: Container(
+              width: Dimensions.width,
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(50),
+                    topLeft: Radius.circular(50)),
+              ),
+              child: LoadImage(
+                image: medicine!.i!,
+              ),
             ),
           ),
         ),
@@ -206,7 +212,6 @@ class FixedBottomSheet extends StatelessWidget {
                         fontSize: Dimensions.FONT_SIZE_LARGE,
                         color: ColorResources.Black_COLOR),
                   ),
-
                 ]),
           ),
         ),
