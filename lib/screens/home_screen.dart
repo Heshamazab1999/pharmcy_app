@@ -110,8 +110,8 @@ class HomeScreen extends StatelessWidget {
                       enablePullDown: true,
                       onLoading: () async {
                         await controller.loadMore();
-                        // controller.refreshController.loadComplete();
-                        // controller.refreshController.requestLoading();
+                        controller.refreshController.loadComplete();
+                        controller.refreshController.requestLoading();
                       },
                       child: GridView.builder(
                         // controller: controller.scrollController,

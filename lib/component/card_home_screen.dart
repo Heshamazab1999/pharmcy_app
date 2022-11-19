@@ -90,7 +90,7 @@ class CardScreen extends StatelessWidget {
                           color: ColorResources.Black_COLOR),
                       children: [
                         TextSpan(
-                          text: " ${double.parse(medicine!.k!)}",
+                          text: " ${double.parse(medicine!.k??"0").round()}",
                           style: avenirsMedium.copyWith(
                               fontSize: Dimensions.FONT_SIZE_LARGE,
                               color: ColorResources.RED_COLOR),

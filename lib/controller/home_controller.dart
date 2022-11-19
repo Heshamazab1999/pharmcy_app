@@ -15,7 +15,7 @@ class HomeController extends BaseController {
   final _isSearched = false.obs;
   final _categorySearch = <MedicineModel>[].obs;
   final RefreshController refreshController = RefreshController();
-  int num = 20;
+  final num = 20.obs;
   final speechToText = SpeechToText().obs;
   final speechEnabled = false.obs;
   final lastWords = ''.obs;
@@ -30,7 +30,7 @@ class HomeController extends BaseController {
     // TODO: implement onInit
     super.onInit();
     setSate(ViewState.busy);
-    medicine.assignAll(await _services.getMedicines(num));
+    medicine.assignAll(await _services.getMedicines(num.value));
     _initSpeech();
     setSate(ViewState.idle);
   }
@@ -88,8 +88,8 @@ class HomeController extends BaseController {
 
   loadMore() async {
     if (medicine.isNotEmpty) {
-      num += 20;
-      medicine.assignAll(await _services.getMedicines(num));
+      num.value += 20;
+      medicine.assignAll(await _services.getMedicines(num.value));
       // loadData.addAll(medicine);
     } else {
       print("Loading");
