@@ -118,38 +118,38 @@ class FixedBottomSheet extends StatelessWidget {
                 ]),
           ),
         ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(
+        //     horizontal: 10,
+        //   ),
+        //   child: RichText(
+        //     text: TextSpan(
+        //         text: "EXPIRE_WARNING_DAY : ",
+        //         style: avenirsMedium.copyWith(
+        //             fontSize: Dimensions.FONT_SIZE_DEFAULT,
+        //             color: ColorResources.RED_COLOR),
+        //         children: [
+        //           TextSpan(
+        //             text: medicine!.g.toString(),
+        //             style: avenirsMedium.copyWith(
+        //                 fontSize: Dimensions.FONT_SIZE_LARGE,
+        //                 color: ColorResources.Black_COLOR),
+        //           ),
+        //           TextSpan(
+        //               text: " Day",
+        //               style: avenirsMedium.copyWith(
+        //                   fontSize: Dimensions.FONT_SIZE_DEFAULT,
+        //                   color: ColorResources.Black_COLOR)),
+        //         ]),
+        //   ),
+        // ),
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
           child: RichText(
             text: TextSpan(
-                text: "EXPIRE_WARNING_DAY : ",
-                style: avenirsMedium.copyWith(
-                    fontSize: Dimensions.FONT_SIZE_DEFAULT,
-                    color: ColorResources.RED_COLOR),
-                children: [
-                  TextSpan(
-                    text: medicine!.g.toString(),
-                    style: avenirsMedium.copyWith(
-                        fontSize: Dimensions.FONT_SIZE_LARGE,
-                        color: ColorResources.Black_COLOR),
-                  ),
-                  TextSpan(
-                      text: " Day",
-                      style: avenirsMedium.copyWith(
-                          fontSize: Dimensions.FONT_SIZE_DEFAULT,
-                          color: ColorResources.Black_COLOR)),
-                ]),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-          ),
-          child: RichText(
-            text: TextSpan(
-                text: "CONSUMER_PRICE : ",
+                text: "PRICE : ",
                 style: avenirsMedium.copyWith(
                     fontSize: Dimensions.FONT_SIZE_DEFAULT,
                     color: ColorResources.RED_COLOR),

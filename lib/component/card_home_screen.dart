@@ -54,7 +54,7 @@ class CardScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4),
             child: AutoSizeText(
-              "Name-Ar: ${medicine!.c!}",
+              "${medicine!.c!}",
               style: avenirsMedium.copyWith(
                   fontSize: Dimensions.FONT_SIZE_LARGE,
                   color: ColorResources.Black_COLOR),
